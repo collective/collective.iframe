@@ -6,6 +6,12 @@
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission
+        id="collective.iframe.AddIframe"
+        title="collective.iframe: Add Iframe"
+    />
+
+
 
   </configure>
 
