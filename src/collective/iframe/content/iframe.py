@@ -30,7 +30,7 @@ class IIframe(model.Schema):
     """
 
     remote_url = schema.URI(
-        title=_("label_url_to_embed", "Url to embed"), required=False
+        title=_("label_url_to_embed", "Url to embed"), required=True
     )
 
     page_width = schema.TextLine(
@@ -45,6 +45,7 @@ class IIframe(model.Schema):
                 "the site setup. You may use %, px, em, etc."
             ),
         ),
+        default="100%",
         required=False,
     )
 
@@ -58,6 +59,7 @@ class IIframe(model.Schema):
                 "the site setup. You may use %, px, em, etc."
             ),
         ),
+        default="500px",
         required=False,
     )
 

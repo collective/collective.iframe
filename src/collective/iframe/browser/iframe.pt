@@ -1,0 +1,40 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  lang="en"
+  metal:use-macro="context/@@main_template/macros/master"
+  xml:lang="en"
+  i18n:domain="plone"
+>
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <div
+          id="text_above"
+          tal:condition="python:getattr(context, 'text_above', None)"
+          tal:content="structure python:context.text_above.output_relative_to(view.context)"
+        />
+
+        <iframe
+          src="${context/remote_url}"
+          name="collective_iframe"
+          id="collective_iframe"
+          marginwidth="0"
+          marginheight="0"
+          frameborder="0"
+          title="${context/title}"
+          width="${context/page_width}"
+          height="${context/page_height}"
+        />
+
+        <div
+          id="text_below"
+          tal:condition="python:getattr(context, 'text_below', None)"
+          tal:content="structure python:context.text_below.output_relative_to(view.context)"
+        />
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>
