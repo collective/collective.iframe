@@ -1,1 +1,4 @@
--r requirements_plone60.txt
+pip==23.1.2
+setuptools==67.8.0
+wheel==0.40.0
+zc.buildout==3.0.1
