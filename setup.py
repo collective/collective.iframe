@@ -42,7 +42,6 @@ setup(
         "PyPI": "https://pypi.org/project/collective.iframe/",
         "Source": "https://github.com/collective/collective.iframe",
         "Tracker": "https://github.com/collective/collective.iframe/issues",
-        # 'Documentation': 'https://collective.iframe.readthedocs.io/en/latest/',
     },
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),
@@ -54,14 +53,13 @@ setup(
     install_requires=[
         "setuptools",
         # -*- Extra requirements: -*-
-        "z3c.jbot",
-        "plone.api>=1.8.4",
+        "plone.api",
         "plone.app.dexterity",
     ],
     extras_require={
         "test": [
             "plone.app.testing",
-            "plone.testing>=5.0.0",
+            "plone.testing",
             "plone.app.contenttypes",
             "plone.app.robotframework[debug]",
         ],
