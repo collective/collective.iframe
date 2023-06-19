@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
@@ -42,14 +41,4 @@ COLLECTIVE_IFRAME_INTEGRATION_TESTING = IntegrationTesting(
 COLLECTIVE_IFRAME_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_IFRAME_FIXTURE,),
     name="CollectiveIframeLayer:FunctionalTesting",
-)
-
-
-COLLECTIVE_IFRAME_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        COLLECTIVE_IFRAME_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name="CollectiveIframeLayer:AcceptanceTesting",
 )
