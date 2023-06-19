@@ -63,6 +63,25 @@ class IIframe(model.Schema):
         required=False,
     )
 
+    hide_metadata = schema.Bool(
+        title=_("Hide Metadata??"),
+        description=_('help_hide_metadata', default=(
+                "Check this option if you want to hide the page metadata, "
+                "like title, description, print and send page icons, author, "
+                "etc.")),
+        default=True,
+        required=False,
+    )
+
+    show_reference = schema.Bool(
+        title=_("Show Reference?"),
+        description=_('help_show_reference', default=(
+            "Check this option if you want to show the provided link as "
+            "a reference in the bottom of the page.")),
+        default=False,
+        required=False,
+    )
+
     text_above = RichText(title=_("Text above"), required=False)
 
     text_below = RichText(title=_("Text below"), required=False)
