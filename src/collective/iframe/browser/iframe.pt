@@ -33,7 +33,9 @@
                   <p tal:replace="structure context/@@description" />
                 </metal:description>
 
+                <tal:comment condition="nothing">plone.belowcontentdescription does not exist on Plone 5.2</tal:comment>
                 <div
+                  tal:on-error="string:"
                   id="viewlet-below-content-description"
                   tal:content="structure provider:plone.belowcontentdescription"
                 />

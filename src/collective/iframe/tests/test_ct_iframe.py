@@ -68,3 +68,29 @@ class IframeIntegrationTest(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ["Contributor"])
         fti = queryUtility(IDexterityFTI, name="Iframe")
         self.assertTrue(fti.global_allow, "{0} is not globally addable!".format(fti.id))
+
+    def test_iframe_view(self):
+        setRoles(self.portal, TEST_USER_ID, ["Contributor"])
+        url = "https://maurits.vanrees.org"
+        title = "Here be dragons"
+        obj = api.content.create(
+            container=self.portal,
+            type="Iframe",
+            id="iframe",
+            title=title,
+            remote_url=url,
+        )
+
+        # render it
+        html = obj()
+        self.assertIn(f'<iframe src="{url}"', html)
+
+        # By default, the title is not shown.
+        # The tag differs a bit per Plone version.
+        title_tag5 = f'<h1 class="documentFirstHeading">{title}</h1>'
+        title_tag6 = f"<h1>{title}</h1>"
+        self.assertNotIn(title_tag5, html)
+        self.assertNotIn(title_tag6, html)
+        obj.hide_metadata = False
+        html = obj()
+        self.assertTrue(title_tag5 in html or title_tag6 in html)
