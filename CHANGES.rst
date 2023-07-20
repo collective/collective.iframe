@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a2 (unreleased)
+1.0.0a2 (2023-07-21)
 --------------------
 
 - In our typeinfo, use ``contenttype/iframe`` as icon.
